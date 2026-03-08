@@ -1,105 +1,126 @@
-# 🏠 Smart Home Automation
+# 🏠 hom\<on> — Smart Home Automation
 
-Projeto de **automação residencial (Smart Home)** desenvolvido durante o curso técnico na ETEC, com integração entre **software e hardware** para simular o controle de dispositivos de uma residência inteligente.
-
-O sistema permite controlar ambientes da casa por meio de uma aplicação com interface gráfica conectada via **Bluetooth** a um **Arduino**, responsável por acionar sensores e dispositivos físicos.
+> Projeto de automação residencial desenvolvido durante o curso técnico na **ETEC**, integrando um aplicativo mobile com hardware Arduino via Bluetooth para simular o controle inteligente de uma residência.
 
 ---
 
-##  Interface do Sistema
+## 📱 Interface do Aplicativo
 
-A interface do aplicativo permite selecionar ambientes da casa e controlar dispositivos conectados.
+O app **hom\<on>** foi desenvolvido em **Delphi (FireMonkey)** para Android e apresenta uma interface intuitiva com botões por ambiente, seleção de dispositivo Bluetooth e feedback visual do estado da conexão.
 
-- Cozinha
-- Sala
-- Dormitório
-- Banheiro
-- Garagem
+![Interface do hom<on>](./assets/app-preview.png)
 
-A comunicação com o Arduino é realizada via **Bluetooth**, permitindo enviar comandos e receber respostas do sistema.
+### Ambientes controlados pelo app:
+| Ícone | Ambiente |
+|:---:|---|
+| 🍴 | Cozinha |
+| 🛋️ | Sala |
+| 🛏️ | Dormitório 1 |
+| 🚻 | Banheiro (WC) |
+| 🚗 | Garagem |
 
 ---
 
-## ⚙️ Tecnologias Utilizadas
+## ⚙️ Arquitetura do Sistema
+
+```
+[ App hom<on> ] → Bluetooth → [ Arduino ] → [ Dispositivos físicos ]
+                                               ├── LEDs (iluminação)
+                                               ├── Servo Motor
+                                               ├── Sensor Laser
+                                               └── Caixa de som
+```
+
+O sistema opera em três camadas:
+
+1. **Interface** — App mobile com seleção de ambientes e controle por botões
+2. **Comunicação** — Conexão Bluetooth via módulo HC-05
+3. **Controle físico** — Arduino interpreta comandos e aciona os dispositivos
+
+---
+
+## 🛠️ Tecnologias Utilizadas
 
 ### Software
-
-- **Android Studio** – Desenvolvimento do aplicativo mobile
-- **Delphi** – Interface de controle e comunicação
-- **Bluetooth Communication** – Conexão entre aplicação e Arduino
+| Ferramenta | Uso |
+|---|---|
+| Delphi / FireMonkey | Desenvolvimento do app mobile (Android) |
+| Object Pascal | Linguagem de programação |
+| Arduino IDE / C++ | Programação do microcontrolador |
+| Bluetooth Classic | Comunicação app ↔ Arduino |
 
 ### Hardware
-
-- **Arduino**
-- **Módulo Bluetooth**
-- **Servo Motor**
-- **LEDs (controle de iluminação)**
-- **Sensor Laser para detecção**
-- **Caixa de som para simulação de eventos**
-
----
-
-## 🔌 Arquitetura do Projeto
-
-O sistema funciona em três camadas principais:
-
-1. **Interface do usuário**
-   - Aplicação com layout gráfico para controle da casa
-
-2. **Comunicação**
-   - Conexão Bluetooth entre aplicativo e Arduino
-
-3. **Controle físico**
-   - Arduino recebe comandos e aciona os dispositivos eletrônicos
-
-Fluxo básico:
-- Aplicação → Bluetooth → Arduino → Dispositivos (LEDs, Servo Motor, Sensores) 
+| Componente | Função |
+|---|---|
+| Arduino | Microcontrolador central |
+| Módulo Bluetooth HC-05 | Comunicação sem fio |
+| LEDs (10x) | Simulação de iluminação por ambiente |
+| Servo Motor | Controle de abertura (porta/garagem) |
+| Sensor Laser | Detecção de presença |
+| Caixa de som | Simulação de eventos sonoros |
+| LDR | Sensor de luminosidade para automação externa |
 
 ---
 
-## 🧠 Funcionalidades
+## ✅ Funcionalidades
 
-- Controle de iluminação dos ambientes
-- Simulação de presença na residência
-- Acionamento de dispositivos via Bluetooth
-- Monitoramento básico de sensores
-- Interface visual para seleção de ambientes
+- [x] Conexão Bluetooth com o Arduino via app
+- [x] Controle de iluminação por ambiente
+- [x] Automação da iluminação externa com sensor LDR
+- [x] Acionamento de servo motor
+- [x] Simulação de presença na residência
+- [x] Interface gráfica com seleção de ambientes
+- [x] Feedback visual de status da conexão
 
 ---
 
-## 🛠️ Estrutura do Projeto
-smart-home-automation
+## 📁 Estrutura do Repositório
+
+```
+smart-home-automation/
 │
-├── mobile-app
-├── arduino-code
-├── bluetooth-control
-├── audio-system
-└── interface-delphi
-
+├── 📱 APP mobile/          # Aplicativo Android (Delphi/FMX)
+│   ├── Unit1.pas           # Tela principal e lógica do app
+│   ├── BTConfig.pas        # Configuração Bluetooth
+│   └── Remote.dproj        # Projeto Delphi
+│
+├── 🤖 Arduino/             # Código do microcontrolador
+│   ├── iluminacao.ino      # Controle de iluminação e LDR
+│   └── ...
+│
+└── 📄 README.md
+```
 
 ---
 
-## 🎯 Objetivo do Projeto
+## 📚 Conceitos Aplicados
 
-Explorar conceitos de:
+- Automação residencial e IoT
+- Comunicação Bluetooth entre dispositivos
+- Programação embarcada (Arduino / C++)
+- Desenvolvimento de app mobile (Delphi / FireMonkey)
+- Integração hardware-software
+- Sensores analógicos e controle de atuadores
 
-- Automação residencial
-- Internet das Coisas (IoT)
-- Integração entre hardware e software
-- Comunicação Bluetooth
-- Controle de dispositivos embarcados
+---
+
+## 🚀 Melhorias Futuras
+
+- [ ] Migração para controle via Wi-Fi / MQTT (IoT)
+- [ ] Reescrita do app em Flutter ou React Native
+- [ ] Dashboard web para monitoramento em tempo real
+- [ ] Adição de mais sensores (temperatura, presença PIR)
+- [ ] Automações baseadas em horário e rotinas
 
 ---
 
 ## 👨‍💻 Autor
 
 **Bruno Neemias**
+Projeto desenvolvido para fins educacionais como parte das atividades do curso técnico na **ETEC**, aplicando conceitos de automação, sistemas embarcados e integração de hardware e software.
 
-📎 GitHub  
-https://github.com/brunoneemias
+[![GitHub](https://img.shields.io/badge/GitHub-brunoneemias-181717?style=flat&logo=github)](https://github.com/brunoneemias)
 
 ---
 
-## 📚 Observação
-
-Este projeto foi desenvolvido para fins educacionais como parte das atividades do curso técnico na **ETEC**, com o objetivo de aplicar conceitos de automação e integração de sistemas.
+> 💡 Este repositório reúne os módulos do projeto **hom\<on>**, um sistema de automação residencial com foco em aprendizado prático de IoT e integração de sistemas.
