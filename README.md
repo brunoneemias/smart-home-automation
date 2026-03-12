@@ -4,6 +4,12 @@
 
 ---
 
+## 🎥 Apresentação do Projeto
+
+👉 [![Apresentação PowerPoint](https://img.shields.io/badge/Apresentação-Residência%20Automatizada-blue?style=for-the-badge&logo=microsoftpowerpoint)](https://1drv.ms/p/c/3dca12016f762561/IQAqEcxo2fL7RZtjPgJTWDdyAcaCLQ-Ol9fiY2QTF_awL10?e=FpOWl3)
+
+---
+
 ## 📱 Interface do Aplicativo
 
 O app **hom\<on>** foi desenvolvido em **Delphi (FireMonkey)** para Android e apresenta uma interface intuitiva com botões por ambiente, seleção de dispositivo Bluetooth e feedback visual do estado da conexão.
